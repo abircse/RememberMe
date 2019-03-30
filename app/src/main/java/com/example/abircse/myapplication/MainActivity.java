@@ -31,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
         userPreferences = getSharedPreferences("User Authentication",MODE_PRIVATE);
         editor = userPreferences.edit();
 
+        // data exist or not
+        if (userPreferences.contains("phone") && userPreferences.contains("password"))
+        {
+            Toast.makeText(getApplicationContext(), "Going to main activity", Toast.LENGTH_LONG).show();
+        }
+
         PHONENO.setText(userPreferences.getString("phone",null));
         PASSWORD.setText(userPreferences.getString("password",null));
 
